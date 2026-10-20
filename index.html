@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>СТК64.РФ — Производство автозапчастей и РТИ</title>
+  <meta name="description" content="Производство и оптовые поставки автозапчастей и полиуретановых деталей для отечественных автомобилей. Собственное производство в г. Балаково.">
+  <style>
+    :root {
+      --bg-dark: #11141a;
+      --bg-card: #1a1e27;
+      --bg-light: #f5f6f9;
+      --text-main: #1f2937;
+      --text-light: #f3f4f6;
+      --text-muted: #9ca3af;
+      /* Фирменный цвет с упаковки */
+      --accent: #E6007A;
+      --accent-hover: #c40068;
+      --accent-soft: rgba(230, 0, 122, 0.12);
+      --border-color: #272f3d;
+      --radius: 10px;
+    }
+
+    /* Плавная прокрутка страницы */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Шапка */
+    header {
+      background-color: var(--bg-dark);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    /* Центрирование блока логотипа и названия */
+    .brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .brand-logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+    }
+
+    .brand-logo span {
+      color: var(--accent);
+    }
+
+    .brand-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .header-contacts {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .phone-link {
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .phone-link:hover {
+      color: var(--accent);
+    }
+
+    .btn-contact {
+      background-color: var(--accent);
+      color: #fff;
+      padding: 9px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: background 0.2s, box-shadow 0.2s;
+      display: inline-block;
+    }
+
+    .btn-contact:hover {
+      background-color: var(--accent-hover);
+      box-shadow: 0 4px 14px rgba(230, 0, 122, 0.35);
+    }
+
+    /* Главный баннер */
+    .hero {
+      background: radial-gradient(circle at 80% 20%, rgba(230, 0, 122, 0.15) 0%, transparent 50%),
+                  linear-gradient(180deg, var(--bg-dark) 0%, #161a22 100%);
+      color: var(--text-light);
+      padding: 65px 0 75px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: #ff3399;
+      border: 1px solid rgba(230, 0, 122, 0.3);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      line-height: 1.25;
+      font-weight: 800;
+      margin-bottom: 16px;
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero p {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    /* Преимущества */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: -35px;
+      margin-bottom: 60px;
+    }
+
+    .feature-card {
+      background: #fff;
+      padding: 24px;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border-top: 4px solid var(--accent);
+    }
+
+    .feature-card h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    /* Каталог */
+    .catalog-section {
+      padding-bottom: 70px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      text-align: center;
+      scroll-margin-top: 90px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #6b7280;
+      font-size: 15px;
+      margin-bottom: 40px;
+    }
+
+    .section-subtitle a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .section-subtitle a:hover {
+      text-decoration: underline;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 25px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+      border: 1px solid #e5e7eb;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      border-color: #d1d5db;
+    }
+
+    /* Галерея карточки */
+    .product-gallery {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-thumb {
+      height: 220px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6b7280;
+      position: relative;
+      padding: 14px;
+      border-bottom: 1px solid #f0f2f5;
+    }
+
+    .product-thumb img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .product-thumbs-list {
+      display: flex;
+      gap: 8px;
+      padding: 10px 14px;
+      background: #ffffff;
+      border-bottom: 1px solid #f0f2f5;
+      overflow-x: auto;
+    }
+
+    .thumb-item {
+      width: 48px;
+      height: 48px;
+      border-radius: 6px;
+      border: 1.5px solid #e5e7eb;
+      padding: 3px;
+      background: #fff;
+      cursor: pointer;
+      object-fit: contain;
+      transition: border-color 0.2s, transform 0.2s;
+      flex-shrink: 0;
+    }
+
+    .thumb-item:hover,
+    .thumb-item.active {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .product-sku-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(4px);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-family: monospace;
+      letter-spacing: 0.5px;
+      border-left: 3px solid var(--accent);
+      z-index: 2;
+    }
+
+    .product-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-title {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+
+    .product-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .tag {
+      background: #eef2f6;
+      color: #4b5563;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .tag-accent {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .tag-box {
+      background: #fdf2f8;
+      color: var(--accent);
+      border: 1px solid rgba(230, 0, 122, 0.25);
+      font-weight: 600;
+    }
+
+    .product-footer {
+      margin-top: auto;
+      padding-top: 15px;
+      border-top: 1px solid #f3f4f6;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .price-notice {
+      font-size: 12px;
+      color: #9ca3af;
+      font-weight: 500;
+    }
+
+    /* Блок для оптовиков */
+    .b2b-section {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 45px 35px;
+      margin-bottom: 70px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    }
+
+    .b2b-title {
+      font-size: 24px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 30px;
+      color: var(--text-main);
+    }
+
+    .b2b-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .b2b-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 22px 20px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .b2b-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+      border-color: #d1d5db;
+    }
+
+    .b2b-card h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-main);
+      letter-spacing: -0.2px;
+    }
+
+    .b2b-card p {
+      font-size: 14px;
+      color: #4b5563;
+      line-height: 1.5;
+    }
+
+    /* Подвал */
+    footer {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      padding: 50px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h4 {
+      font-size: 16px;
+      margin-bottom: 16px;
+      color: #fff;
+      border-left: 3px solid var(--accent);
+      padding-left: 8px;
+    }
+
+    .footer-col p, .footer-col a {
+      color: var(--text-muted);
+      font-size: 14px;
+      text-decoration: none;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .footer-col a:hover {
+      color: #fff;
+    }
+
+    .footer-btn-call {
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+      width: fit-content !important;
+      padding: 7px 16px !important;
+      font-size: 13px !important;
+      line-height: 1.2;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    footer .btn-contact {
+      color: #ffffff !important;
+    }
+
+    footer .btn-contact:hover {
+      color: #ffffff !important;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 25px;
+      border-top: 1px solid var(--border-color);
+      color: #6b7280;
+      font-size: 13px;
+    }
+
+    @media (max-width: 640px) {
+      /* Отключаем залипание шапки на мобильных */
+      header {
+        position: static;
+      }
+
+      /* Выравнивание шапки по центру на мобильных устройствах */
+      .header-nav { 
+        flex-direction: column; 
+        gap: 14px; 
+        align-items: center; 
+        text-align: center;
+      }
+
+      .header-contacts { 
+        width: 100%; 
+        justify-content: center; 
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .hero h1 { font-size: 26px; }
+      .hero { padding: 40px 0 55px; }
+      .b2b-section { padding: 25px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Шапка -->
+  <header>
+    <div class="container header-nav">
+      <div class="brand">
+        <a href="#" class="brand-logo">СТК<span>64</span>.РФ</a>
+        <span class="brand-sub">Производство деталей и РТИ • г. Балаково</span>
+      </div>
+      <div class="header-contacts">
+        <a href="tel:+79272296123" class="phone-link">+7 (927) 229-61-23</a>
+        <a href="tel:+79272296123" class="btn-contact">Позвонить</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Главный экран -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">Собственное производство</div>
+      <h1>Производство резинотехнических изделий</h1>
+      <p>Высокоточные детали для отечественных автомобилей (ВАЗ, LADA, ГАЗ), строгий контроль геометрии и качества.</p>
+      <div class="hero-buttons">
+        <a href="#catalog-heading" class="btn-contact" style="padding: 12px 24px; font-size: 15px;">Смотреть каталог</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Преимущества -->
+  <div class="container">
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>Точная геометрия</h3>
+        <p>Полное соответствие заводским посадочным размерам и штатным узлам автомобиля.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Прямые оптовые цены</h3>
+        <p>Отгрузки напрямую от производителя без дополнительных наценок торговых посредников.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Доставка по РФ</h3>
+        <p>Оперативная сборка заказов и отправка через ТК СДЭК, Деловые Линии, ПЭК или Энергию.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Каталог продукции -->
+  <main class="container catalog-section">
+    <h2 class="section-title" id="catalog-heading">Каталог продукции</h2>
+    <p class="section-subtitle">
+      Позиции доступны для оптового заказа. Для уточнения актуальных цен звоните: 
+      <a href="tel:+79272296123">+7 (927) 229-61-23</a>
+    </p>
+
+    <div class="product-grid">
+
+      <!-- Позиция 1 -->
+      <article class="product-card">
+        <div class="product-gallery">
+          <div class="product-thumb">
+            <span class="product-sku-badge">8450033574</span>
+            <img id="product-img-1" src="opora_amor.png" alt="Верхняя опора амортизатора задней подвески">
+          </div>
+          <div class="product-thumbs-list">
+            <img src="opora_amor.png" alt="Фото 1" class="thumb-item active" onclick="changeImage('product-img-1', this.src, this)">
+            <img src="opora_amor2.png" alt="Фото 2" class="thumb-item" onclick="changeImage('product-img-1', this.src, this)">
+          </div>
+        </div>
+        <div class="product-body">
+          <h3 class="product-title">Верхняя опора амортизатора задней подвески</h3>
+          <div class="product-tags">
+            <span class="tag tag-accent">В сборе</span>
+            <span class="tag">LADA Vesta</span>
+            <span class="tag tag-box">📦 В коробке</span>
+          </div>
+          <p class="product-desc" style="font-size: 13px; color: #4b5563; line-height: 1.45; margin-bottom: 14px;">
+            Предназначена для надежного крепления штока амортизатора к кузову автомобиля, снижает передачу вибраций и шумов от подвески
+          </p>
+          <div class="product-footer">
+            <span style="font-size: 13px; color: #6b7280;">Арт: 8450033574</span>
+            <span class="price-notice">Цена по звонку</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Позиция 2 -->
+      <article class="product-card">
+        <div class="product-gallery">
+          <div class="product-thumb">
+            <span class="product-sku-badge">3302-2202085</span>
+            <img id="product-img-2" src="podushka.png" alt="Опора подвесного подшипника карданного вала">
+          </div>
+          <div class="product-thumbs-list">
+            <img src="podushka.png" alt="Фото 1" class="thumb-item active" onclick="changeImage('product-img-2', this.src, this)">
+            <img src="podushka2.png" alt="Фото 2" class="thumb-item" onclick="changeImage('product-img-2', this.src, this)">
+          </div>
+        </div>
+        <div class="product-body">
+          <h3 class="product-title">Опора подвесного подшипника карданного вала</h3>
+          <div class="product-tags">
+            <span class="tag tag-accent">Усиленная</span>
+            <span class="tag">ГАЗ 3302</span>
+          </div>
+          <p class="product-desc" style="font-size: 13px; color: #4b5563; line-height: 1.45; margin-bottom: 14px;">
+            Предназначена для надежной фиксации промежуточной опоры карданного вала на раме автомобиля, обеспечивает правильную соосность валов и снижает передачу вибраций и шумов от трансмиссии
+          </p>
+          <div class="product-footer">
+            <span style="font-size: 13px; color: #6b7280;">Арт: 3302-2202085</span>
+            <span class="price-notice">Цена по звонку</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Позиция 3 -->
+      <article class="product-card">
+        <div class="product-gallery">
+          <div class="product-thumb">
+            <span class="product-sku-badge">8450031975</span>
+            <img id="product-img-3" src="kostochka.png" alt="Нижняя опора двигателя усиленная">
+          </div>
+          <div class="product-thumbs-list">
+            <img src="kostochka.png" alt="Фото 1" class="thumb-item active" onclick="changeImage('product-img-3', this.src, this)">
+            <img src="kostochka2.png" alt="Фото 2" class="thumb-item" onclick="changeImage('product-img-3', this.src, this)">
+          </div>
+        </div>
+        <div class="product-body">
+          <h3 class="product-title">Нижняя опора двигателя усиленная</h3>
+          <div class="product-tags">
+            <span class="tag tag-accent">Усиленная</span>
+            <span class="tag">LADA Vesta</span>
+            <span class="tag tag-box">📦 В коробке</span>
+          </div>
+          <p class="product-desc" style="font-size: 13px; color: #4b5563; line-height: 1.45; margin-bottom: 14px;">
+            Предназначена для надежной фиксации силового агрегата и ограничения его продольных колебаний при разгоне и торможении, снижает передачу вибраций и ударных нагрузок на кузов автомобиля
+          </p>
+          <div class="product-footer">
+            <span style="font-size: 13px; color: #6b7280;">Арт: 8450031975</span>
+            <span class="price-notice">Цена по звонку</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Позиция 4 -->
+      <article class="product-card">
+        <div class="product-gallery">
+          <div class="product-thumb">
+            <span class="product-sku-badge">2110-1703190</span>
+            <img id="product-img-4" src="desyatka.png" alt="Обойма шаровой опоры рычага КПП (в сборе)">
+          </div>
+          <div class="product-thumbs-list">
+            <img src="desyatka.png" alt="Фото 1" class="thumb-item active" onclick="changeImage('product-img-4', this.src, this)">
+            <img src="desyatka2.png" alt="Фото 2" class="thumb-item" onclick="changeImage('product-img-4', this.src, this)">
+          </div>
+        </div>
+        <div class="product-body">
+          <h3 class="product-title">Обойма шаровой опоры рычага КПП (в сборе)</h3>
+          <div class="product-tags">
+            <span class="tag tag-accent">С подшипником</span>
+            <span class="tag">ВАЗ 2110-2112, Приора</span>
+            <span class="tag tag-box">📦 В коробке</span>
+          </div>
+          <p class="product-desc" style="font-size: 13px; color: #4b5563; line-height: 1.45; margin-bottom: 14px;">
+            Предназначена для подвижной фиксации рычага переключения передач в кулисе механизма выбора, обеспечивает плавный свободный ход рычага и снижает передачу вибраций от коробки передач в салон
+          </p>
+          <div class="product-footer">
+            <span style="font-size: 13px; color: #6b7280;">Арт: 2110-1703190</span>
+            <span class="price-notice">Цена по звонку</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Позиция 5 -->
+      <article class="product-card">
+        <div class="product-gallery">
+          <div class="product-thumb">
+            <span class="product-sku-badge">1118-1703190</span>
+            <img id="product-img-5" src="kalina.png" alt="Обойма шаровой опоры рычага КПП (с подшипником из полиамида)">
+          </div>
+          <div class="product-thumbs-list">
+            <img src="kalina.png" alt="Фото 1" class="thumb-item active" onclick="changeImage('product-img-5', this.src, this)">
+            <img src="kalina2.png" alt="Фото 2" class="thumb-item" onclick="changeImage('product-img-5', this.src, this)">
+          </div>
+        </div>
+        <div class="product-body">
+          <h3 class="product-title">Обойма шаровой опоры рычага КПП (с подшипником из полиамида)</h3>
+          <div class="product-tags">
+            <span class="tag tag-accent">С подшипником</span>
+            <span class="tag">LADA Kalina, Granta</span>
+            <span class="tag tag-box">📦 В коробке</span>
+          </div>
+          <p class="product-desc" style="font-size: 13px; color: #4b5563; line-height: 1.45; margin-bottom: 14px;">
+            Предназначена для шарнирного крепления основания рычага переключения передач, обеспечивает четкость включения ступеней за счет устранения люфтов и снижает передачу вибраций от привода управления КПП
+          </p>
+          <div class="product-footer">
+            <span style="font-size: 13px; color: #6b7280;">Арт: 1118-1703190</span>
+            <span class="price-notice">Цена по звонку</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Позиция 6 -->
+      <article class="product-card">
+        <div class="product-thumb">
+          <span class="product-sku-badge">1118-1703190</span>
+          <img src="kalina_bp.png" alt="Обойма шаровой опоры рычага КПП (без подшипника)">
+        </div>
+        <div class="product-body">
+          <h3 class="product-title">Обойма шаровой опоры рычага КПП (без подшипника)</h3>
+          <div class="product-tags">
+            <span class="tag tag-accent">Без подшипника</span>
+            <span class="tag">LADA Kalina, Granta</span>
+          </div>
+          <p class="product-desc" style="font-size: 13px; color: #4b5563; line-height: 1.45; margin-bottom: 14px;">
+            Предназначена для шарнирного крепления основания рычага переключения передач, обеспечивает четкость включения ступеней за счет устранения люфтов и снижает передачу вибраций от привода управления КПП
+          </p>
+          <div class="product-footer">
+            <span style="font-size: 13px; color: #6b7280;">Арт: 1118-1703190</span>
+            <span class="price-notice">Цена по звонку</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Блок B2B -->
+    <div class="b2b-section" style="margin-top: 50px;">
+      <h3 class="b2b-title">Сотрудничество с магазинами и оптовиками</h3>
+      <div class="b2b-grid">
+        <div class="b2b-card">
+          <h4>Формирование партий</h4>
+          <p>Поставка любыми объемами: от небольших заказов для региональных магазинов до регулярных оптовых партий для сетей.</p>
+        </div>
+        <div class="b2b-card">
+          <h4>Упаковка</h4>
+          <p>Фирменная индивидуальная упаковка, подготовка под требования розницы и маркетплейсов.</p>
+        </div>
+        <div class="b2b-card">
+          <h4>Документооборот</h4>
+          <p>Работаем официально по договору (ИП), предоставляем полный комплект закрывающих бухгалтерских документов.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Подвал -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>СТК64.РФ</h4>
+          <p>Производство резинотехнических изделий</p>
+          <p>Россия, Саратовская обл., г. Балаково</p>
+        </div>
+        <div class="footer-col">
+          <h4>Контакты</h4>
+          <a href="tel:+79272296123">+7 (927) 229-61-23</a>
+          <a href="mailto:ip_spirina64@mail.ru">ip_spirina64@mail.ru</a>
+          <div style="margin-top: 10px;">
+            <a href="tel:+79272296123" class="btn-contact footer-btn-call">Позвонить</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Информация</h4>
+          <p>Оптовые поставки по всей территории РФ</p>
+          <p>Доставка: ТК КИТ, Деловые Линии, ПЭК, СДЭК</p>
+        </div>
+      </div>
+      <div class="copyright">
+        © 2026 СТК64.РФ. Все права защищены.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Скрипт переключения фото -->
+  <script>
+    function changeImage(mainId, newSrc, thumbElement) {
+      const mainImg = document.getElementById(mainId);
+      if (mainImg) {
+        mainImg.src = newSrc;
+      }
+      const parent = thumbElement.parentElement;
+      const thumbs = parent.querySelectorAll('.thumb-item');
+      thumbs.forEach(t => t.classList.remove('active'));
+      thumbElement.classList.add('active');
+    }
+  </script>
+</body>
+</html>
