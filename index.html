@@ -375,6 +375,46 @@
       font-weight: 500;
     }
 
+    /* Блок ссылок Ozon */
+    .ozon-links {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px dashed #e5e7eb;
+    }
+
+    .btn-ozon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background-color: #005bff;
+      color: #ffffff !important;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background-color 0.2s, transform 0.15s;
+    }
+
+    .btn-ozon:hover {
+      background-color: #004ecc;
+      transform: translateY(-1px);
+    }
+
+    .btn-ozon-alt {
+      background-color: #f0f5ff;
+      color: #005bff !important;
+      border: 1px solid rgba(0, 91, 255, 0.25);
+    }
+
+    .btn-ozon-alt:hover {
+      background-color: #e3edff;
+    }
+
     /* Блок для оптовиков */
     .b2b-section {
       background: #fff;
@@ -493,12 +533,10 @@
     }
 
     @media (max-width: 640px) {
-      /* Отключаем залипание шапки на мобильных */
       header {
         position: static;
       }
 
-      /* Выравнивание шапки по центру на мобильных устройствах */
       .header-nav { 
         flex-direction: column; 
         gap: 14px; 
@@ -575,7 +613,7 @@
 
     <div class="product-grid">
 
-      <!-- Позиция 1 -->
+      <!-- Позиция 1 (1 ссылка Ozon) -->
       <article class="product-card">
         <div class="product-gallery">
           <div class="product-thumb">
@@ -601,10 +639,16 @@
             <span style="font-size: 13px; color: #6b7280;">Арт: 8450033574</span>
             <span class="price-notice">Цена по звонку</span>
           </div>
+
+          <div class="ozon-links">
+            <a href="https://ozon.ru/t/1fPunM2" target="_blank" rel="noopener noreferrer" class="btn-ozon">
+              Купить на Ozon
+            </a>
+          </div>
         </div>
       </article>
 
-      <!-- Позиция 2 -->
+      <!-- Позиция 2 (1 ссылка Ozon) -->
       <article class="product-card">
         <div class="product-gallery">
           <div class="product-thumb">
@@ -629,10 +673,16 @@
             <span style="font-size: 13px; color: #6b7280;">Арт: 3302-2202085</span>
             <span class="price-notice">Цена по звонку</span>
           </div>
+
+          <div class="ozon-links">
+            <a href="https://ozon.ru/t/ukTZZWG" target="_blank" rel="noopener noreferrer" class="btn-ozon">
+              Купить на Ozon
+            </a>
+          </div>
         </div>
       </article>
 
-      <!-- Позиция 3 -->
+      <!-- Позиция 3 (1 ссылка Ozon) -->
       <article class="product-card">
         <div class="product-gallery">
           <div class="product-thumb">
@@ -658,10 +708,16 @@
             <span style="font-size: 13px; color: #6b7280;">Арт: 8450031975</span>
             <span class="price-notice">Цена по звонку</span>
           </div>
+
+          <div class="ozon-links">
+            <a href="https://ozon.ru/t/5DYcxxT" target="_blank" rel="noopener noreferrer" class="btn-ozon">
+              Купить на Ozon
+            </a>
+          </div>
         </div>
       </article>
 
-      <!-- Позиция 4 -->
+      <!-- Позиция 4 (1 ссылка Ozon) -->
       <article class="product-card">
         <div class="product-gallery">
           <div class="product-thumb">
@@ -687,10 +743,16 @@
             <span style="font-size: 13px; color: #6b7280;">Арт: 2110-1703190</span>
             <span class="price-notice">Цена по звонку</span>
           </div>
+
+          <div class="ozon-links">
+            <a href="https://ozon.ru/t/HqSAF1m" target="_blank" rel="noopener noreferrer" class="btn-ozon">
+              Купить на Ozon
+            </a>
+          </div>
         </div>
       </article>
 
-      <!-- Позиция 5 -->
+      <!-- Позиция 5 (2 ссылки на разные карточки Ozon) -->
       <article class="product-card">
         <div class="product-gallery">
           <div class="product-thumb">
@@ -716,10 +778,20 @@
             <span style="font-size: 13px; color: #6b7280;">Арт: 1118-1703190</span>
             <span class="price-notice">Цена по звонку</span>
           </div>
+
+          <!-- 2 карточки на Ozon -->
+          <div class="ozon-links">
+            <a href="https://ozon.ru/t/1fPu9BZ" target="_blank" rel="noopener noreferrer" class="btn-ozon">
+              Купить на Ozon в магазине Мир
+            </a>
+            <a href="https://ozon.ru/t/J5IWcB3" target="_blank" rel="noopener noreferrer" class="btn-ozon btn-ozon-alt">
+              Купить на Ozon в магазине СТК64
+            </a>
+          </div>
         </div>
       </article>
 
-      <!-- Позиция 6 -->
+      <!-- Позиция 6 (2 ссылки на разные карточки Ozon) -->
       <article class="product-card">
         <div class="product-thumb">
           <span class="product-sku-badge">1118-1703190</span>
@@ -737,6 +809,16 @@
           <div class="product-footer">
             <span style="font-size: 13px; color: #6b7280;">Арт: 1118-1703190</span>
             <span class="price-notice">Цена по звонку</span>
+          </div>
+
+          <!-- 2 карточки на Ozon -->
+          <div class="ozon-links">
+            <a href="https://ozon.ru/t/hiCqnVH" target="_blank" rel="noopener noreferrer" class="btn-ozon">
+              Купить на Ozon в магазине Мир
+            </a>
+            <a href="https://ozon.ru/t/OyVsb0O" target="_blank" rel="noopener noreferrer" class="btn-ozon btn-ozon-alt">
+              Купить на Ozon в магазине СТК64
+            </a>
           </div>
         </div>
       </article>
